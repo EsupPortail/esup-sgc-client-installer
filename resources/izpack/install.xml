@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
+
+<installation version="5.0">
+	<info>
+		<appname>EsupSgcClient</appname>
+		<appversion>$version</appversion>
+		<authors>
+			<author name="DSI Université Rouen Normandie"
+				email="givenname.lastname@hello-world.org" />
+		</authors>
+		<url>https://www.esup-portail.org/wiki/display/SGC/Clients+ESUP-SGC-CLIENT+v2.0</url>
+	</info>
+
+	<variables>
+		<variable name="DesktopShortcutCheckboxEnabled" value="true" />
+	</variables>
+	
+	<natives>
+		<native type="izpack" name="ShellLink.dll" />
+		<native type="izpack" name="ShellLink_x64.dll" />
+	</natives>
+	
+	<guiprefs width="640" height="480" resizable="yes" />
+
+	<resources>
+		<res id="shortcutSpec.xml" src="default_shortcut_spec.xml"/>
+	</resources>
+	
+	<locale>
+		<langpack iso3="fra" />
+	</locale>
+
+	<panels>
+		<panel classname="TargetPanel" />
+		<panel classname="PacksPanel"/>
+		<panel classname="InstallPanel" />
+		<panel classname="ShortcutPanel"/>
+		<panel classname="FinishPanel" />
+	</panels>
+
+	<packs>
+		<pack name="ressources" required="yes">
+			<description>Ressources required</description>
+			<fileset dir="../jfx"
+					 targetdir="$INSTALL_PATH/javafx" />
+			<fileset dir="../jdk" targetdir="$INSTALL_PATH/java" />
+			<singlefile src="logo.ico"
+						target="$INSTALL_PATH/logo.ico" />
+		</pack>
+		<pack name="esup-sgc-client" required="no">
+			<description>Esup Sgc Client Application</description>
+			<singlefile src="../../esup-sgc-client/target/esup-sgc-client-final.jar"
+				target="$INSTALL_PATH/$version/esupsgcclient-shib.jar" />
+		</pack>
+		<pack name="esup-nfc-tag-keyboard" required="no">
+			<description>Esup Nfc Tag Keyboard Application</description>
+			<singlefile src="../../esup-nfc-tag-keyboard/target/esup-nfc-tag-keyboard-final.jar"
+						target="$INSTALL_PATH/$version/esupnfctagkeyboard-shib.jar" />
+		</pack>
+		<pack name="esup-nfc-tag-desktop" required="no">
+			<description>Esup Nfc Tag Desktop Application</description>
+			<singlefile src="../../esup-nfc-tag-desktop/target/esup-nfc-tag-desktop-final.jar"
+						target="$INSTALL_PATH/$version/esupnfctagdesktop-shib.jar" />
+		</pack>
+	</packs>
+
+</installation>

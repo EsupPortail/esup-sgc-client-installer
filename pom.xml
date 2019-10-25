@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.esupportail.esupsgcclient</groupId>
+    <artifactId>esupsgcclient</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>esup-sgc-client-installer</name>
+    <url>http://maven.apache.org</url>
+    <properties>
+        <java.version>11</java.version>
+        <staging.dir>${project.build.directory}/staging</staging.dir>
+        <izpack.version>5.1.3</izpack.version>
+        <installer-output-filename>esupsgc-installer.jar</installer-output-filename>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.izpack</groupId>
+                    <artifactId>izpack-maven-plugin</artifactId>
+                    <version>${izpack.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>2.4.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.6</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.3.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>2.3</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>com.googlecode.maven-download-plugin</groupId>
+                <artifactId>download-maven-plugin</artifactId>
+                <version>1.3.0</version>
+                <executions>
+                    <execution>
+                        <id>jdk</id>
+                        <!-- the wget goal actually binds itself to this phase by default -->
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>wget</goal>
+                        </goals>
+                        <configuration>
+                            <url>https://download.java.net/openjdk/jdk11/ri/openjdk-11+28_windows-x64_bin.zip</url>
+                            <outputFileName>openjdk.zip</outputFileName>
+                            <!-- default target location, just to demonstrate the parameter -->
+                            <outputDirectory>${basedir}/target</outputDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>jfx</id>
+                        <!-- the wget goal actually binds itself to this phase by default -->
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>wget</goal>
+                        </goals>
+                        <configuration>
+                            <url>https://gluonhq.com/download/javafx-11-0-2-sdk-windows/</url>
+                            <outputFileName>openjfx.zip</outputFileName>
+                            <!-- default target location, just to demonstrate the parameter -->
+                            <outputDirectory>${basedir}/target</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <id>unzipJdk</id>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <tasks>
+                                <unzip src="${basedir}/target/openjdk.zip" dest="target/jdktemp" />
+                                <move file="target/jdktemp/jdk-11" tofile="target/jdk"/>
+                                <delete file="target/openjdk.zip"/>
+                                <delete dir="target/jdktemp"/>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>unzipJfx</id>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <tasks>
+                                <unzip src="${basedir}/target/openjfx.zip" dest="target/jfxtemp" />
+                                <move file="target/jfxtemp/javafx-sdk-11.0.2" tofile="target/jfx"/>
+                                <delete file="target/openjfx.zip"/>
+                                <delete dir="target/jfxtemp"/>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <!-- here the phase you need -->
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${staging.dir}</outputDirectory>
+
+                            <!-- recursive copy of all resource under src/main/izpack. this is
+                                the stuff to install as well as install.xml and panel data and such -->
+                            <resources>
+                                <resource>
+                                    <directory>resources/izpack</directory>
+                                    <includes>
+                                        <include>**/*</include>
+                                    </includes>
+                                    <filtering>false</filtering>
+                                </resource>
+
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <id>replaceVersion</id>
+                        <phase>package</phase>
+                        <configuration>
+                            <tasks>
+                                <replace file="target/staging/install.xml" token="$version" value="${project.version}" />
+                                <replace file="target/staging/default_shortcut_spec.xml" token="$version" value="${project.version}" />
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+
+                    <execution>
+                        <!-- copy izpack custom (custom panels, etc.) jars to izpack staging
+                            custom -->
+                        <id>copy-izpack-dependencies</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${staging.dir}/custom</outputDirectory>
+                            <excludeTransitive>false</excludeTransitive>
+                            <stripVersion>true</stripVersion>
+                            <overWriteReleases>true</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                            <includeArtifactIds>izpack-panels</includeArtifactIds> <!-- IMPORTANT: this causes *only* our custom panels to be copied -->
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- We need to tell the izpack-maven-plugin what to use as the base directory
+                (this is our staging area), and also tell it the install file to use: -->
+            <plugin>
+                <groupId>org.codehaus.izpack</groupId>
+                <artifactId>izpack-maven-plugin</artifactId>
+                <version>${izpack.version}</version>
+                <configuration>
+                    <classifier>Toto</classifier>
+                    <descriptorEncoding>UTF-8</descriptorEncoding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>izpack</goal>
+                        </goals>
+                        <configuration>
+                            <!-- base for relative paths in izpack descriptor -->
+                            <baseDir>${staging.dir}</baseDir>
+                            <installFile>${staging.dir}/install.xml</installFile>
+                            <output>${project.build.directory}/${installer-output-filename}</output>
+                        </configuration>
+                    </execution>
+                </executions>
+                <!-- must have a dependency here on any code used in the installer, otherwise
+                    the classloader will not find it. So in this case we need our panels and
+                    then the package that contains the base classes for the panels -->
+                <dependencies>
+                    <dependency>
+                        <groupId>org.codehaus.izpack</groupId>
+                        <artifactId>izpack-panel</artifactId>
+                        <version>${izpack.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>com.akathist.maven.plugins.launch4j</groupId>
+                <artifactId>launch4j-maven-plugin</artifactId>
+                <version>1.7.15</version>
+                <executions>
+                    <execution>
+                        <id>l4j-gui</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>launch4j</goal>
+                        </goals>
+                        <configuration>
+                            <headerType>gui</headerType>
+                            <jar>target/${installer-output-filename}</jar>
+                            <outfile>target/esupsgc-installer.exe</outfile>
+                            <classPath>
+                                <mainClass>com.izforge.izpack.installer.bootstrap.Installer</mainClass>
+                            </classPath>
+                            <jre>
+                                <path>jdk</path>
+                            </jre>
+                            <versionInfo>
+                                <fileVersion>1.0.0.0</fileVersion>
+                                <txtFileVersion>${project.version}</txtFileVersion>
+                                <fileDescription>${project.name}</fileDescription>
+                                <copyright>C</copyright>
+                                <productVersion>1.0.0.0</productVersion>
+                                <txtProductVersion>1.0.0.0</txtProductVersion>
+                                <productName>${project.name}</productName>
+                                <internalName>AppName</internalName>
+                                <originalFilename>esupsgc-installer.exe</originalFilename>
+                            </versionInfo>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
