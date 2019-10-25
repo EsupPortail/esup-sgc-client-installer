@@ -19,6 +19,6 @@
 			  target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="--module-path ..\javafx\lib --add-modules javafx.controls,javafx.fxml,javafx.base,javafx.media,javafx.graphics,javafx.swing,javafx.web -jar esupnfctagdesktop-shib.jar"
 			  workingDirectory="$INSTALL_PATH\$version" description="esupnfctagdesktop"
 			  iconFile="$INSTALL_PATH\logo.ico" iconIndex="0"
-			  initialState="maximized" desktop="yes"
+			  initialState="normal" desktop="yes"
 			  applications="yes" startMenu="yes" />
 </shortcuts>
