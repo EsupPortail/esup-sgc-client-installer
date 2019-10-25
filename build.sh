@@ -30,5 +30,5 @@ mvn clean package
 7z a target/package.7z ./target/jdk
 cat resources/sfx/7z.sfx target/package.7z > target/esup-sgc-client-installer.exe
 
-rm target/antrun target/esupsgcclient-1.0-SNAPSHOT.jar target/esupsgc-installer.exe target/esupsgc-installer.jar target/jdk target/jfx target/maven-archiver target/package.7z target/staging
+rm -rf target/antrun target/esupsgcclient-1.0-SNAPSHOT.jar target/esupsgc-installer.exe target/esupsgc-installer.jar target/jdk target/jfx target/maven-archiver target/package.7z target/staging
 rm -rf esup-sgc-client esup-nfc-tag-desktop esup-nfc-tag-keyboard
