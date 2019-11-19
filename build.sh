@@ -9,7 +9,7 @@ git clone https://github.com/EsupPortail/esup-nfc-tag-desktop.git
 git clone https://github.com/EsupPortail/esup-nfc-tag-keyboard.git	   
 
 sed -i -e "s&https://esup-sgc.univ-ville.fr&$0&g" esup-sgc-client/src/main/resources/esupsgcclient.properties
-sed -i -e "s&https://esup-nfc-tag.univ-ville.fr&$0&g" esup-sgc-client/src/main/resources/esupsgcclient.properties esup-nfc-tag-desktop/src/main/resources/esupnfctag.properties esup-nfc-tag-keyboard/src/main/resources/esupnfctagkeyboard.properties
+sed -i -e "s&https://esup-nfc-tag.univ-ville.fr&$1&g" esup-sgc-client/src/main/resources/esupsgcclient.properties esup-nfc-tag-desktop/src/main/resources/esupnfctag.properties esup-nfc-tag-keyboard/src/main/resources/esupnfctagkeyboard.properties
 sed -i -e "s&https://esup-sgc.univ-ville.fr/manager/{0}&$0/manager/{0}&g" esup-nfc-tag-keyboard/src/main/resources/esupnfctagkeyboard.properties
 
 mvn -f esup-sgc-client/pom.xml clean package
