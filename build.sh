@@ -17,9 +17,8 @@ mvn -f esup-nfc-tag-desktop/pom.xml clean package
 mvn -f esup-nfc-tag-keyboard/pom.xml clean package
 mvn clean package
 
-7z a target/package.7z ./target/esupsgc-installer.exe
-7z a target/package.7z ./target/jdk
-cat resources/sfx/7z.sfx target/package.7z > target/esup-sgc-client-installer.exe
+7z a target/esupsgc-installer.7z ./target/esupsgc-installer.exe
+7z a target/esupsgc-installer.7z ./target/jdk
 
 cp esup-sgc-client/target/esup-sgc-client-final.jar target/esupsgcclient-shib.jar
 cp esup-nfc-tag-keyboard/target/esup-nfc-tag-keyboard-final.jar target/esupnfctagkeyboard.jar
