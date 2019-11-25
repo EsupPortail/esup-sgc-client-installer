@@ -19,7 +19,7 @@ mvn clean package
 
 cd target
 
-zip esup-sgc-client-installer.7z esupsgc-installer.exe jdk
+zip esup-sgc-client-installer.zip esupsgc-installer.exe jdk
 
 cd ../
 
