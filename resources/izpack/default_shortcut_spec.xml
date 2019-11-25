@@ -6,19 +6,19 @@
 	<shortcut name="esupSgcClient"
 		target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="--module-path ..\javafx\lib --add-modules javafx.controls,javafx.fxml,javafx.base,javafx.media,javafx.graphics,javafx.swing,javafx.web -jar esupsgcclient-shib.jar"
 		workingDirectory="$INSTALL_PATH\$version" description="esupsgclient"
-		iconFile="$INSTALL_PATH\logo.ico" iconIndex="0"
+		iconFile="$INSTALL_PATH\icon\esupsgcclient.ico" iconIndex="0"
 		initialState="maximized" desktop="yes"
 		applications="yes" startMenu="yes" />
 	<shortcut name="esupNfcTagKeyboard"
 			  target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="-jar esupnfctagkeyboard-shib.jar"
 			  workingDirectory="$INSTALL_PATH\$version" description="esupnfctagkeyboard"
-			  iconFile="$INSTALL_PATH\logo.ico" iconIndex="0"
+			  iconFile="$INSTALL_PATH\icon\esupnfctagdesktop.ico" iconIndex="0"
 			  initialState="maximized" desktop="yes"
 			  applications="yes" startMenu="yes" />
 	<shortcut name="esupNfcTagDesktop"
 			  target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="--module-path ..\javafx\lib --add-modules javafx.controls,javafx.fxml,javafx.base,javafx.media,javafx.graphics,javafx.swing,javafx.web -jar esupnfctagdesktop-shib.jar"
 			  workingDirectory="$INSTALL_PATH\$version" description="esupnfctagdesktop"
-			  iconFile="$INSTALL_PATH\logo.ico" iconIndex="0"
+			  iconFile="$INSTALL_PATH\icon\esupnfctagkeyboard.ico" iconIndex="0"
 			  initialState="normal" desktop="yes"
 			  applications="yes" startMenu="yes" />
 </shortcuts>
