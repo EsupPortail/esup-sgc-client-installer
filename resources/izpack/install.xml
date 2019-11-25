@@ -44,8 +44,12 @@
 			<fileset dir="../jfx"
 					 targetdir="$INSTALL_PATH/javafx" />
 			<fileset dir="../jdk" targetdir="$INSTALL_PATH/java" />
-			<singlefile src="logo.ico"
-						target="$INSTALL_PATH/logo.ico" />
+			<singlefile src="icon/esupsgcclient.ico"
+						target="$INSTALL_PATH/icon/esupsgcclient.ico" />
+			<singlefile src="icon/esupnfctagkeyboard.ico"
+						target="$INSTALL_PATH/icon/esupnfctagkeyboard.ico" />
+			<singlefile src="icon/esupnfctagdesktop.ico"
+						target="$INSTALL_PATH/icon/esupnfctagdesktop.ico" />
 		</pack>
 		<pack name="esup-sgc-client" required="no">
 			<description>Esup Sgc Client Application</description>
