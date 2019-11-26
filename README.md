@@ -5,19 +5,28 @@ Cet installateur embarque ainsi un openjdk+openjfx pour exécuter ces différent
 
 Celà permet de faciliter l'installation de ces clients, sans recourrir au JDK d'Oracle.
 
+Deux solutions sont disponibles pour la génération de l'installateur :
 
-## Modification des propriétés (chemin java11, urls esup-sgc  et esup-nfc) via le fichier :
+## Solution 1 : Via https://esup-sgc-client-web-installer.univ-rouen.fr/
+
+* Il suffit de se loguer.
+* Puis d'entrer vos paramètres.
+* L'application se charge du reste et vous propose des liens de téléchargements.
+
+## Solution 2 : Générer mon installateur
+
+### Modification des propriétés (chemin java11, urls esup-sgc  et esup-nfc) via le fichier :
 ```
 resources/esup-installer.properties
 ```
 
-## Build :
+### Build :
 ```
 ./build.sh
 ```
 
-## Prérequis :
+### Prérequis :
 * Maven
 * JDK 11
 * git
-* p7zip
+* zip
