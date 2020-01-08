@@ -15,14 +15,14 @@ Deux solutions sont disponibles pour la génération de l'installateur :
 
 ## Solution 2 : Générer mon installateur
 
-### Modification des propriétés (chemin java11, urls esup-sgc  et esup-nfc) via le fichier :
+### s'assurer que le JAVA_HOME pointe sur un JDK 11:
 ```
-resources/esup-installer.properties
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 ```
 
 ### Build :
 ```
-./build.sh
+./build.sh https://esup-sgc.univ-ville.fr https://esup-nfc-tag.univ-ville.fr
 ```
 
 ### Prérequis :
