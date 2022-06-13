@@ -61,22 +61,8 @@
                             <goal>wget</goal>
                         </goals>
                         <configuration>
-                            <url>https://download.java.net/openjdk/jdk11/ri/openjdk-11+28_windows-x64_bin.zip</url>
+                            <url>https://cdn.azul.com/zulu/bin/zulu18.30.11-ca-fx-jre18.0.1-win_x64.zip</url>
                             <outputFileName>openjdk.zip</outputFileName>
-                            <!-- default target location, just to demonstrate the parameter -->
-                            <outputDirectory>${basedir}/target</outputDirectory>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>jfx</id>
-                        <!-- the wget goal actually binds itself to this phase by default -->
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>wget</goal>
-                        </goals>
-                        <configuration>
-                            <url>https://gluonhq.com/download/javafx-11-0-2-sdk-windows/</url>
-                            <outputFileName>openjfx.zip</outputFileName>
                             <!-- default target location, just to demonstrate the parameter -->
                             <outputDirectory>${basedir}/target</outputDirectory>
                         </configuration>
@@ -93,24 +79,9 @@
                         <configuration>
                             <tasks>
                                 <unzip src="${basedir}/target/openjdk.zip" dest="target/jdktemp" />
-                                <move file="target/jdktemp/jdk-11" tofile="target/jdk"/>
+                                <move file="target/jdktemp/zulu18.30.11-ca-fx-jre18.0.1-win_x64" tofile="target/jdk"/>
                                 <delete file="target/openjdk.zip"/>
                                 <delete dir="target/jdktemp"/>
-                            </tasks>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>unzipJfx</id>
-                        <phase>generate-resources</phase>
-                        <configuration>
-                            <tasks>
-                                <unzip src="${basedir}/target/openjfx.zip" dest="target/jfxtemp" />
-                                <move file="target/jfxtemp/javafx-sdk-11.0.2" tofile="target/jfx"/>
-                                <delete file="target/openjfx.zip"/>
-                                <delete dir="target/jfxtemp"/>
                             </tasks>
                         </configuration>
                         <goals>
