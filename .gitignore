@@ -1,5 +1,8 @@
-.idea/
-esup-nfc-tag-desktop/
-esup-nfc-tag-keyboard/
-esup-sgc-client/
-target/
+*
+!.gitignore
+!src/
+!src/**
+!LICENCE
+!README.md
+!NOTICE
+!pom.xml
