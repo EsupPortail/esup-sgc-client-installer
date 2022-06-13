@@ -10,7 +10,7 @@
 		initialState="maximized" desktop="yes"
 		applications="yes" startMenu="yes" />
 	<shortcut name="esupNfcTagKeyboard"
-			  target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="--add-exports java.desktop/com.sun.java.swing.plaf.windows=ALL-UNNAMED -jar esupnfctagkeyboard-shib.jar"
+			  target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="-jar esupnfctagkeyboard-shib.jar"
 			  workingDirectory="$INSTALL_PATH\$version" description="esupnfctagkeyboard"
 			  iconFile="$INSTALL_PATH\icon\esupnfctagkeyboard.ico" iconIndex="0"
 			  initialState="maximized" desktop="yes"

@@ -41,6 +41,8 @@
 	<packs>
 		<pack name="ressources" required="yes">
 			<description>Ressources required</description>
+			<fileset dir="../jfx"
+					 targetdir="$INSTALL_PATH/javafx" />
 			<fileset dir="../jdk" targetdir="$INSTALL_PATH/java" />
 			<singlefile src="icon/esupsgcclient.ico"
 						target="$INSTALL_PATH/icon/esupsgcclient.ico" />
