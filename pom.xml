@@ -117,12 +117,26 @@
                             <goal>run</goal>
                         </goals>
                     </execution>
+                    <execution>
+                        <id>replaceVersion</id>
+                        <phase>package</phase>
+                        <configuration>
+                            <tasks>
+                                <replace file="target/staging/install.xml" token="$version" value="${project.version}" />
+                                <replace file="target/staging/default_shortcut_spec.xml" token="$version" value="${project.version}" />
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>                    
                 </executions>
             </plugin>
 
 
             <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
+                <version>3.2.0</version>                
                 <executions>
                     <execution>
                         <id>copy-resources</id>
@@ -151,25 +165,6 @@
                 </executions>
             </plugin>
 
-            <plugin>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.8</version>
-                <executions>
-                    <execution>
-                        <id>replaceVersion</id>
-                        <phase>package</phase>
-                        <configuration>
-                            <tasks>
-                                <replace file="target/staging/install.xml" token="$version" value="${project.version}" />
-                                <replace file="target/staging/default_shortcut_spec.xml" token="$version" value="${project.version}" />
-                            </tasks>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
 
             <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -234,7 +229,7 @@
             <plugin>
                 <groupId>com.akathist.maven.plugins.launch4j</groupId>
                 <artifactId>launch4j-maven-plugin</artifactId>
-                <version>1.7.15</version>
+                <version>2.1.2</version>
                 <executions>
                     <execution>
                         <id>l4j-gui</id>
