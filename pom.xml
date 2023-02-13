@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.esupportail.esupsgcclient</groupId>
     <artifactId>esupsgcclient</artifactId>
-    <version>1.4-SNAPSHOT</version>
+    <version>2.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>esup-sgc-client-installer</name>
     <url>http://maven.apache.org</url>
@@ -61,7 +61,7 @@
                             <goal>wget</goal>
                         </goals>
                         <configuration>
-                            <url>https://cdn.azul.com/zulu/bin/zulu18.30.11-ca-fx-jre18.0.1-win_x64.zip</url>
+                            <url>https://cdn.azul.com/zulu/bin/zulu17.40.19-ca-fx-jre17.0.6-win_x64.zip</url>
                             <outputFileName>openjdk.zip</outputFileName>
                             <!-- default target location, just to demonstrate the parameter -->
                             <outputDirectory>${basedir}/target</outputDirectory>
@@ -79,7 +79,7 @@
                         <configuration>
                             <tasks>
                                 <unzip src="${basedir}/target/openjdk.zip" dest="target/jdktemp" />
-                                <move file="target/jdktemp/zulu18.30.11-ca-fx-jre18.0.1-win_x64" tofile="target/jdk"/>
+                                <move file="target/jdktemp/zulu17.40.19-ca-fx-jre17.0.6-win_x64" tofile="target/jdk"/>
                                 <delete file="target/openjdk.zip"/>
                                 <delete dir="target/jdktemp"/>
                             </tasks>

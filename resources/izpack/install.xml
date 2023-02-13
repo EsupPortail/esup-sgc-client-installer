@@ -6,7 +6,7 @@
 		<appversion>$version</appversion>
 		<authors>
 			<author name="DSI Université Rouen Normandie"
-				email="givenname.lastname@hello-world.org" />
+				email="vincent.bonamy@univ-rouen.fr" />
 		</authors>
 		<url>https://www.esup-portail.org/wiki/display/SGC/Clients+ESUP-SGC-CLIENT+v2.0</url>
 	</info>
@@ -50,10 +50,20 @@
 						target="$INSTALL_PATH/icon/esupnfctagdesktop.ico" />
 		</pack>
 		<pack name="esup-sgc-client" required="no">
-			<description>Esup Sgc Client Application</description>
-			<singlefile src="../../esup-sgc-client/target/esup-sgc-client-final.jar"
-				target="$INSTALL_PATH/$version/esupsgcclient-shib.jar" />
+			<description>Esup Sgc Client</description>
+			<singlefile src="../../esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client.jar"
+				target="$INSTALL_PATH/$version/esup-sgc-client.jar" />
 		</pack>
+		<pack name="esup-sgc-client-zebra" required="no">
+			<description>Esup Sgc Client Zebra</description>
+			<singlefile src="../../esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-zebra.jar"
+				target="$INSTALL_PATH/$version/esup-sgc-client-zebra.jar" />
+		</pack>
+		<pack name="esup-sgc-client-evolis" required="no">
+			<description>Esup Sgc Client Evolis</description>
+			<singlefile src="../../esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-evolis.jar"
+				target="$INSTALL_PATH/$version/esup-sgc-client-evolis.jar" />
+		</pack>        
 		<pack name="esup-nfc-tag-keyboard" required="no">
 			<description>Esup Nfc Tag Keyboard Application</description>
 			<singlefile src="../../esup-nfc-tag-keyboard/target/esup-nfc-tag-keyboard-final.jar"

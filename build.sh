@@ -8,11 +8,17 @@ git clone https://github.com/EsupPortail/esup-sgc-client.git
 git clone https://github.com/EsupPortail/esup-nfc-tag-desktop.git
 git clone https://github.com/EsupPortail/esup-nfc-tag-keyboard.git	   
 
-sed -i -e "s&https://esup-sgc.univ-ville.fr&$1&g" esup-sgc-client/src/main/resources/esupsgcclient.properties
-sed -i -e "s&https://esup-nfc-tag.univ-ville.fr&$2&g" esup-sgc-client/src/main/resources/esupsgcclient.properties esup-nfc-tag-desktop/src/main/resources/esupnfctag.properties esup-nfc-tag-keyboard/src/main/resources/esupnfctagkeyboard.properties
+sed -i -e "s&https://esup-sgc-demo.univ-rouen.fr&$1&g" esup-sgc-client/esupsgcclient-core/src/main/resources/esupsgcclient.properties
+sed -i -e "s&https://esup-nfc-tag-demo.univ-rouen.fr&$2&g" esup-sgc-client/esupsgcclient-core/src/main/resources/esupsgcclient.properties
+sed -i -e "s&https://esup-nfc-tag.univ-ville.fr&$2&g" esup-nfc-tag-desktop/src/main/resources/esupnfctag.properties esup-nfc-tag-keyboard/src/main/resources/esupnfctagkeyboard.properties
 sed -i -e "s&https://esup-sgc.univ-ville.fr/manager/{0}&$1/manager/{0}&g" esup-nfc-tag-keyboard/src/main/resources/esupnfctagkeyboard.properties
 
 mvn -f esup-sgc-client/pom.xml clean package
+mv esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-final.jar esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client.jar
+mvn -f esup-sgc-client/pom.xml -P zebra package
+mv esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-final.jar esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-zebra.jar
+mvn -f esup-sgc-client/pom.xml -P evolis package
+mv esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-final.jar esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-evolis.jar
 mvn -f esup-nfc-tag-desktop/pom.xml clean package
 mvn -f esup-nfc-tag-keyboard/pom.xml clean package
 mvn clean package
@@ -24,7 +30,9 @@ zip esup-sgc-client-installer.zip esupsgc-installer.exe
 
 cd ../
 
-cp esup-sgc-client/target/esup-sgc-client-final.jar target/esupsgcclient-shib.jar
+mv esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client.jar target/
+mv esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-zebra.jar target/
+mv esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-evolis.jar target/
 cp esup-nfc-tag-keyboard/target/esup-nfc-tag-keyboard-final.jar target/esupnfctagkeyboard.jar
 cp esup-nfc-tag-desktop/target/esup-nfc-tag-desktop-final.jar target/esupnfctagdesktop.jar
 

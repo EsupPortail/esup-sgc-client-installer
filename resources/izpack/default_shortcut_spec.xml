@@ -4,11 +4,24 @@
 	here. -->
 <shortcuts>
 	<shortcut name="esupSgcClient"
-		target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="-Dcom.sun.webkit.useHTTP2Loader=false -jar esupsgcclient-shib.jar"
+		target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="-Dcom.sun.webkit.useHTTP2Loader=false -jar esup-sgc-client.jar"
 		workingDirectory="$INSTALL_PATH\$version" description="esupsgclient"
 		iconFile="$INSTALL_PATH\icon\esupsgcclient.ico" iconIndex="0"
 		initialState="maximized" desktop="yes"
 		applications="yes" startMenu="yes" />
+	<shortcut name="esupSgcClientZebra"
+		target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="-Dcom.sun.webkit.useHTTP2Loader=false -jar esup-sgc-client-zebra.jar"
+		workingDirectory="$INSTALL_PATH\$version" description="esupsgclient zebra"
+		iconFile="$INSTALL_PATH\icon\esupsgcclient.ico" iconIndex="0"
+		initialState="maximized" desktop="yes"
+		applications="yes" startMenu="yes" />
+	<shortcut name="esupSgcClientEvolis
+                    "
+		target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="-Dcom.sun.webkit.useHTTP2Loader=false -jar esup-sgc-client-evolis.jar"
+		workingDirectory="$INSTALL_PATH\$version" description="esupsgclient evolis"
+		iconFile="$INSTALL_PATH\icon\esupsgcclient.ico" iconIndex="0"
+		initialState="maximized" desktop="yes"
+		applications="yes" startMenu="yes" />        
 	<shortcut name="esupNfcTagKeyboard"
 			  target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="--add-exports java.desktop/com.sun.java.swing.plaf.windows=ALL-UNNAMED -jar esupnfctagkeyboard-shib.jar"
 			  workingDirectory="$INSTALL_PATH\$version" description="esupnfctagkeyboard"
