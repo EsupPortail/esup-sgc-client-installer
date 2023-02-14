@@ -8,29 +8,39 @@
 		workingDirectory="$INSTALL_PATH\$version" description="esupsgclient"
 		iconFile="$INSTALL_PATH\icon\esupsgcclient.ico" iconIndex="0"
 		initialState="maximized" desktop="yes"
-		applications="yes" startMenu="yes" />
+		applications="yes" startMenu="yes">
+        <createForPack name="esup-sgc-client"/>
+    </shortcut>
 	<shortcut name="esupSgcClientZebra"
 		target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="-Dcom.sun.webkit.useHTTP2Loader=false -DprinterZebraEncoderType=other -jar esup-sgc-client-zebra.jar"
 		workingDirectory="$INSTALL_PATH\$version" description="esupsgclient zebra"
 		iconFile="$INSTALL_PATH\icon\esupsgcclient.ico" iconIndex="0"
 		initialState="maximized" desktop="yes"
-		applications="yes" startMenu="yes" />
+		applications="yes" startMenu="yes">
+        <createForPack name="esup-sgc-client-zebra"/>
+    </shortcut>        
 	<shortcut name="esupSgcClientEvolis"
 		target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="-Dcom.sun.webkit.useHTTP2Loader=false -DprinterEvolisSet=IGSendSpoolerSession=OFF;GRibbonType=RC_YMCKOS;Duplex=NONE;GOutputTray=HOPPER -DprinterDeviceName=&quot;Evolis Primacy 2&quot; -jar esup-sgc-client-evolis.jar"
 		workingDirectory="$INSTALL_PATH\$version" description="esupsgclient evolis"
 		iconFile="$INSTALL_PATH\icon\esupsgcclient.ico" iconIndex="0"
 		initialState="maximized" desktop="yes"
-		applications="yes" startMenu="yes" />        
+		applications="yes" startMenu="yes">
+        <createForPack name="esup-sgc-client-evolis"/>
+    </shortcut>        
 	<shortcut name="esupNfcTagKeyboard"
 			  target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="--add-exports java.desktop/com.sun.java.swing.plaf.windows=ALL-UNNAMED -jar esupnfctagkeyboard-shib.jar"
 			  workingDirectory="$INSTALL_PATH\$version" description="esupnfctagkeyboard"
 			  iconFile="$INSTALL_PATH\icon\esupnfctagkeyboard.ico" iconIndex="0"
 			  initialState="maximized" desktop="yes"
-			  applications="yes" startMenu="yes" />
+			  applications="yes" startMenu="yes">
+        <createForPack name="esup-nfc-tag-keyboard"/>
+    </shortcut>        
 	<shortcut name="esupNfcTagDesktop"
 			  target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="-Dcom.sun.webkit.useHTTP2Loader=false -jar esupnfctagdesktop-shib.jar"
 			  workingDirectory="$INSTALL_PATH\$version" description="esupnfctagdesktop"
 			  iconFile="$INSTALL_PATH\icon\esupnfctagdesktop.ico" iconIndex="0"
 			  initialState="normal" desktop="yes"
-			  applications="yes" startMenu="yes" />
+			  applications="yes" startMenu="yes">
+        <createForPack name="esup-nfc-tag-desktop"/>
+    </shortcut>                
 </shortcuts>
