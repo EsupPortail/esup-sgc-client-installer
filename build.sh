@@ -17,7 +17,8 @@ sed -i -e "s&https://esup-sgc.univ-ville.fr/manager/{0}&$1/manager/{0}&g" esup-n
 
 mvn -f esup-sgc-client/pom.xml clean package
 mv esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-final.jar esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client.jar
-mvn -f esup-sgc-client/pom.xml -P zebra initialize package
+mvn -f esup-sgc-client/pom.xml -P zebra initialize
+mvn -f esup-sgc-client/pom.xml -P zebra package
 mv esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-final.jar esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-zebra.jar
 mvn -f esup-sgc-client/pom.xml -P evolis package
 mv esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-final.jar esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-evolis.jar
