@@ -22,6 +22,8 @@ mvn -f esup-sgc-client/pom.xml -P zebra package
 mv esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-final.jar esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-zebra.jar
 mvn -f esup-sgc-client/pom.xml -P evolis package
 mv esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-final.jar esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-evolis.jar
+mvn -f esup-sgc-client/pom.xml -P evolis-sdk package
+mv esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-final.jar esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-evolis-sdk.jar
 mvn -f esup-nfc-tag-desktop/pom.xml clean package
 mvn -f esup-nfc-tag-keyboard/pom.xml clean package
 mvn clean package
@@ -36,6 +38,7 @@ cd ../
 mv esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client.jar target/
 mv esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-zebra.jar target/
 mv esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-evolis.jar target/
+mv esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-evolis-sdk.jar target/
 cp esup-nfc-tag-keyboard/target/esup-nfc-tag-keyboard-final.jar target/esupnfctagkeyboard.jar
 cp esup-nfc-tag-desktop/target/esup-nfc-tag-desktop-final.jar target/esupnfctagdesktop.jar
 

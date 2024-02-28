@@ -26,7 +26,15 @@
 		initialState="maximized" desktop="yes"
 		applications="yes" startMenu="yes">
         <createForPack name="esup-sgc-client-evolis"/>
-    </shortcut>        
+    </shortcut>
+	<shortcut name="esupSgcClientEvolisSdk"
+		target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="-Dcom.sun.webkit.useHTTP2Loader=false -jar esup-sgc-client-evolis-sdk.jar"
+		workingDirectory="$INSTALL_PATH\$version" description="esupsgclient evolis sdk"
+		iconFile="$INSTALL_PATH\icon\esupsgcclient.ico" iconIndex="0"
+		initialState="maximized" desktop="yes"
+		applications="yes" startMenu="yes">
+        <createForPack name="esup-sgc-client-evolis-sdk"/>
+    </shortcut>            
 	<shortcut name="esupNfcTagKeyboard"
 			  target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="--add-exports java.desktop/com.sun.java.swing.plaf.windows=ALL-UNNAMED -jar esupnfctagkeyboard-shib.jar"
 			  workingDirectory="$INSTALL_PATH\$version" description="esupnfctagkeyboard"

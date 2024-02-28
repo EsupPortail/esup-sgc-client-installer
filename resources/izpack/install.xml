@@ -63,7 +63,12 @@
 			<description>Esup Sgc Client Evolis</description>
 			<singlefile src="../../esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-evolis.jar"
 				target="$INSTALL_PATH/$version/esup-sgc-client-evolis.jar" />
-		</pack>        
+		</pack>
+		<pack name="esup-sgc-client-evolis-sdk" required="no">
+			<description>Esup Sgc Client Evolis SDK</description>
+			<singlefile src="../../esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-evolis-sdk.jar"
+				target="$INSTALL_PATH/$version/esup-sgc-client-evolis-sdk.jar" />
+		</pack>                
 		<pack name="esup-nfc-tag-keyboard" required="no">
 			<description>Esup Nfc Tag Keyboard Application</description>
 			<singlefile src="../../esup-nfc-tag-keyboard/target/esup-nfc-tag-keyboard-final.jar"
