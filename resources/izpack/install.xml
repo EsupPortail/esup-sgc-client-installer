@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 
 <installation version="5.0">
 	<info>
 		<appname>EsupSgcClient</appname>
 		<appversion>$version</appversion>
 		<authors>
-			<author name="DSI Université Rouen Normandie"
+			<author name="DSI UniversitÃ© Rouen Normandie"
 				email="vincent.bonamy@univ-rouen.fr" />
 		</authors>
 		<url>https://www.esup-portail.org/wiki/display/SGC/Clients+ESUP-SGC-CLIENT+v2.0</url>
@@ -60,12 +60,12 @@
 				target="$INSTALL_PATH/$version/esup-sgc-client-zebra.jar" />
 		</pack>
 		<pack name="esup-sgc-client-evolis" required="no">
-			<description>Esup Sgc Client Evolis (déprécié)</description>
+			<description>Esup Sgc Client Evolis (dÃ©prÃ©ciÃ©)</description>
 			<singlefile src="../../esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-evolis.jar"
 				target="$INSTALL_PATH/$version/esup-sgc-client-evolis.jar" />
 		</pack>
 		<pack name="esup-sgc-client-evolis-sdk" required="no">
-			<description>Esup Sgc Client Evolis SDK (recommandé)</description>
+			<description>Esup Sgc Client Evolis SDK (recommandÃ©)</description>
 			<singlefile src="../../esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-evolis-sdk.jar"
 				target="$INSTALL_PATH/$version/esup-sgc-client-evolis-sdk.jar" />
 		</pack>                
