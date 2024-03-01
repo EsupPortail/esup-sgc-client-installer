@@ -60,12 +60,12 @@
 				target="$INSTALL_PATH/$version/esup-sgc-client-zebra.jar" />
 		</pack>
 		<pack name="esup-sgc-client-evolis" required="no">
-			<description>Esup Sgc Client Evolis</description>
+			<description>Esup Sgc Client Evolis (déprécié)</description>
 			<singlefile src="../../esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-evolis.jar"
 				target="$INSTALL_PATH/$version/esup-sgc-client-evolis.jar" />
 		</pack>
 		<pack name="esup-sgc-client-evolis-sdk" required="no">
-			<description>Esup Sgc Client Evolis SDK</description>
+			<description>Esup Sgc Client Evolis SDK (recommandé)</description>
 			<singlefile src="../../esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-evolis-sdk.jar"
 				target="$INSTALL_PATH/$version/esup-sgc-client-evolis-sdk.jar" />
 		</pack>                
