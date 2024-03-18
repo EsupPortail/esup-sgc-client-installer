@@ -20,8 +20,6 @@ mv esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-final.jar esup-
 mvn -f esup-sgc-client/pom.xml -P zebra initialize
 mvn -f esup-sgc-client/pom.xml -P zebra package
 mv esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-final.jar esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-zebra.jar
-mvn -f esup-sgc-client/pom.xml -P evolis package
-mv esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-final.jar esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-evolis.jar
 mvn -f esup-sgc-client/pom.xml -P evolis-sdk package
 mv esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-final.jar esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-evolis-sdk.jar
 mvn -f esup-nfc-tag-desktop/pom.xml clean package

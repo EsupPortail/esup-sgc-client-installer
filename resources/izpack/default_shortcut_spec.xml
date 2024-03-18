@@ -19,14 +19,6 @@
 		applications="yes" startMenu="yes">
         <createForPack name="esup-sgc-client-zebra"/>
     </shortcut>        
-	<shortcut name="esupSgcClientEvolis"
-		target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="-Dcom.sun.webkit.useHTTP2Loader=false -DprinterEvolisSet=IGSendSpoolerSession=OFF;GRibbonType=RC_YMCKOS;Duplex=NONE;GOutputTray=HOPPER -DprinterDeviceName=&quot;Evolis Primacy 2&quot; -jar esup-sgc-client-evolis.jar"
-		workingDirectory="$INSTALL_PATH\$version" description="esupsgclient evolis"
-		iconFile="$INSTALL_PATH\icon\esupsgcclient.ico" iconIndex="0"
-		initialState="maximized" desktop="yes"
-		applications="yes" startMenu="yes">
-        <createForPack name="esup-sgc-client-evolis"/>
-    </shortcut>
 	<shortcut name="esupSgcClientEvolisSdk"
 		target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="-Dcom.sun.webkit.useHTTP2Loader=false -jar esup-sgc-client-evolis-sdk.jar"
 		workingDirectory="$INSTALL_PATH\$version" description="esupsgclient evolis sdk"
