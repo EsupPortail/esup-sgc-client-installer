@@ -8,9 +8,9 @@
     <version>2.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>esup-sgc-client-installer</name>
-    <url>http://maven.apache.org</url>
+    <url>https://maven.apache.org</url>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <staging.dir>${project.build.directory}/staging</staging.dir>
         <izpack.version>5.1.3</izpack.version>
         <installer-output-filename>esupsgc-installer.jar</installer-output-filename>
@@ -163,15 +163,11 @@
             </plugin>
 
             <!-- We need to tell the izpack-maven-plugin what to use as the base directory
-                (this is our staging area), and also tell it the install file to use: -->
+                (this is our staging area), and also tell it the installation file to use: -->
             <plugin>
                 <groupId>org.codehaus.izpack</groupId>
                 <artifactId>izpack-maven-plugin</artifactId>
                 <version>${izpack.version}</version>
-                <configuration>
-                    <classifier>Toto</classifier>
-                    <descriptorEncoding>UTF-8</descriptorEncoding>
-                </configuration>
                 <executions>
                     <execution>
                         <phase>package</phase>
