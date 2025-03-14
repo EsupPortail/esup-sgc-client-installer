@@ -61,7 +61,7 @@
                             <goal>wget</goal>
                         </goals>
                         <configuration>
-                            <url>https://cdn.azul.com/zulu/bin/zulu21.40.17-ca-fx-jre21.0.6-win_x64.zip</url>
+                            <url>https://cdn.azul.com/zulu/bin/zulu23.32.11-ca-fx-jre23.0.2-win_x64.zip</url>
                             <outputFileName>openjdk.zip</outputFileName>
                             <!-- default target location, just to demonstrate the parameter -->
                             <outputDirectory>${basedir}/target</outputDirectory>
@@ -79,7 +79,7 @@
                         <configuration>
                             <tasks>
                                 <unzip src="${basedir}/target/openjdk.zip" dest="target/jdktemp" />
-                                <move file="target/jdktemp/zulu21.40.17-ca-fx-jre21.0.6-win_x64" tofile="target/jdk"/>
+                                <move file="target/jdktemp/zulu23.32.11-ca-fx-jre23.0.2-win_x64" tofile="target/jdk"/>
                                 <delete file="target/openjdk.zip"/>
                                 <delete dir="target/jdktemp"/>
                             </tasks>
