@@ -15,9 +15,9 @@ Deux solutions sont disponibles pour la génération de l'installateur :
 
 ## Solution 2 : Générer mon installateur
 
-### s'assurer que le JAVA_HOME pointe sur un JDK 23 :
+### s'assurer que le JAVA_HOME pointe sur un JDK 21 :
 ```
-export JAVA_HOME=/usr/lib/jvm/java-23-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
 ```
 
 ### Build :
@@ -27,6 +27,6 @@ export JAVA_HOME=/usr/lib/jvm/java-23-openjdk-amd64
 
 ### Prérequis :
 * Maven
-* JDK 23
+* JDK 21
 * git
 * zip
