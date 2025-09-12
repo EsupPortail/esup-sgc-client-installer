@@ -13,7 +13,7 @@
         <java.version>17</java.version>
         <staging.dir>${project.build.directory}/staging</staging.dir>
         <izpack.version>5.2.4</izpack.version>
-        <installer-output-filename>esupsgc-installer.jar</installer-output-filename>
+        <installer-output-filename>esupsgc-installer</installer-output-filename>
     </properties>
 
     <build>
@@ -168,14 +168,6 @@
                 <groupId>org.codehaus.izpack</groupId>
                 <artifactId>izpack-maven-plugin</artifactId>
                 <version>${izpack.version}</version>
-                <configuration>
-                    <!--
-                    le Tag classifier permet d'éviter l'erreur suivante :
-                    An attached artifact must have a different ID than its corresponding main artifact.
-                    -->
-                    <classifier>Toto</classifier>
-                    <descriptorEncoding>UTF-8</descriptorEncoding>
-                </configuration>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -186,7 +178,7 @@
                             <!-- base for relative paths in izpack descriptor -->
                             <baseDir>${staging.dir}</baseDir>
                             <installFile>${staging.dir}/install.xml</installFile>
-                            <output>${project.build.directory}/${installer-output-filename}</output>
+                            <finalName>${installer-output-filename}</finalName>
                         </configuration>
                     </execution>
                 </executions>
@@ -214,7 +206,7 @@
                         </goals>
                         <configuration>
                             <headerType>gui</headerType>
-                            <jar>target/${installer-output-filename}</jar>
+                            <jar>target/${installer-output-filename}.jar</jar>
                             <outfile>target/esupsgc-installer.exe</outfile>
                             <classPath>
                                 <mainClass>com.izforge.izpack.installer.bootstrap.Installer</mainClass>
