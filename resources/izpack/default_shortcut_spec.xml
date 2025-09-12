@@ -2,7 +2,12 @@
 <!-- This is the shortcut specification for windows. Its considered default 
 	so on Systems that are not shortcut compatible the information is taken from 
 	here. -->
-<shortcuts>
+<izpack:shortcuts
+    xmlns:izpack="http://izpack.org/schema/shortcuts"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://izpack.org/schema/shortcuts http://izpack.org/schema/5.2/izpack-shortcuts-5.2.xsd"
+    version="5.0">
+
 	<shortcut name="esupSgcClient"
 		target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="-Dcom.sun.webkit.useHTTP2Loader=false -jar esup-sgc-client.jar"
 		workingDirectory="$INSTALL_PATH\$version" description="esupsgclient"
@@ -43,4 +48,4 @@
 			  applications="yes" startMenu="yes">
         <createForPack name="esup-nfc-tag-desktop"/>
     </shortcut>                
-</shortcuts>
+</izpack:shortcuts>
