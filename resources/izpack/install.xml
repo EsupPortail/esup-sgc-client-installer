@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 
 <izpack:installation version="5.0"
-	      xmlns:izpack="http://izpack.org/schema/installation"
+					 xmlns:izpack="http://izpack.org/schema/installation"
                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                      xsi:schemaLocation="http://izpack.org/schema/installation http://izpack.org/schema/5.0/izpack-installation-5.0.xsd">
 	<info>
@@ -16,8 +16,14 @@
 
 	<variables>
 		<variable name="DesktopShortcutCheckboxEnabled" value="true" />
+		<variable name="LOG_DIR" value="%USERPROFILE%\Desktop" />
+		<variable name="LOG_FILENAME" value="esupsgcclient.log" />
 	</variables>
 	
+	<dynamicvariables>
+		<variable name="LOG_PATH" value="$LOG_DIR\$LOG_FILENAME"/>
+	</dynamicvariables>
+
 	<natives>
 		<native type="izpack" name="ShellLink.dll" />
 		<native type="izpack" name="ShellLink_x64.dll" />
@@ -27,6 +33,7 @@
 
 	<resources>
 		<res id="shortcutSpec.xml" src="default_shortcut_spec.xml"/>
+		<res id="userInputSpec.xml" src="userInputSpec.xml"/>
 	</resources>
 	
 	<locale>
@@ -36,6 +43,7 @@
 	<panels>
 		<panel classname="TargetPanel" />
 		<panel classname="PacksPanel"/>
+		<panel classname="UserInputPanel" id="LogPathPanel"/>
 		<panel classname="InstallPanel" />
 		<panel classname="ShortcutPanel"/>
 		<panel classname="FinishPanel" />
@@ -63,7 +71,7 @@
 				target="$INSTALL_PATH/$version/esup-sgc-client-zebra.jar" />
 		</pack>
 		<pack name="esup-sgc-client-evolis-sdk" required="no">
-			<description>Esup Sgc Client Evolis SDK (recommandé)</description>
+			<description>Esup Sgc Client Evolis SDK</description>
 			<singlefile src="../../esup-sgc-client/esupsgcclient-assembly/target/esup-sgc-client-evolis-sdk.jar"
 				target="$INSTALL_PATH/$version/esup-sgc-client-evolis-sdk.jar" />
 		</pack>                

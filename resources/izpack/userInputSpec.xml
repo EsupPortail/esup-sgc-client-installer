@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<izpack:userinput version="5.0"
+    xmlns:izpack="http://izpack.org/schema/userinput"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://izpack.org/schema/userinput http://izpack.org/schema/5.0/izpack-userinput-5.0.xsd">
+
+    <panel id="LogPathPanel">
+        <field type="staticText" align="left" txt="Configuration du répertoire des fichiers de logs" bold="true" />
+        <field type="divider" align="top"/>
+        <field type="space"/>
+
+        <field type="staticText" align="left" txt="Veuillez indiquer le répertoire où seront stockés les fichiers de logs :"/>
+        <field type="text" variable="LOG_DIR">
+            <spec txt="%USERPROFILE%\Desktop" size="50" set="%USERPROFILE%\Desktop"/>
+        </field>
+        <field type="staticText" align="left" txt="(Utilisez %USERPROFILE% pour le dossier utilisateur)" />
+        <field type="space"/>
+
+        <field type="space"/>
+        <field type="staticText" align="left" txt="Nom du fichier de logs :"/>
+        <field type="text" variable="LOG_FILENAME">
+            <spec txt="esupsgcclient.log" size="30" set="esupsgcclient.log"/>
+        </field>
+
+    </panel>
+
+</izpack:userinput>
+

@@ -6,3 +6,6 @@
 !README.md
 !NOTICE
 !pom.xml
+!resources
+!resources/**
+!build.sh

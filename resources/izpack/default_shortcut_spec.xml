@@ -5,11 +5,11 @@
 <izpack:shortcuts
     xmlns:izpack="http://izpack.org/schema/shortcuts"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://izpack.org/schema/shortcuts http://izpack.org/schema/5.2/izpack-shortcuts-5.2.xsd"
+    xsi:schemaLocation="http://izpack.org/schema/shortcuts http://izpack.org/schema/5.0/izpack-shortcuts-5.0.xsd"
     version="5.0">
 
 	<shortcut name="esupSgcClient"
-		target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="-Dcom.sun.webkit.useHTTP2Loader=false -jar esup-sgc-client.jar"
+		target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="-Dcom.sun.webkit.useHTTP2Loader=false -DLOG_PATH=$LOG_PATH -jar esup-sgc-client.jar"
 		workingDirectory="$INSTALL_PATH\$version" description="esupsgclient"
 		iconFile="$INSTALL_PATH\icon\esupsgcclient.ico" iconIndex="0"
 		initialState="maximized" desktop="yes"
@@ -17,7 +17,7 @@
         <createForPack name="esup-sgc-client"/>
     </shortcut>
 	<shortcut name="esupSgcClientZebra"
-		target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="-Dcom.sun.webkit.useHTTP2Loader=false -DprinterZebraEncoderType=other -jar esup-sgc-client-zebra.jar"
+		target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="-Dcom.sun.webkit.useHTTP2Loader=false -DLOG_PATH=$LOG_PATH -DprinterZebraEncoderType=other -jar esup-sgc-client-zebra.jar"
 		workingDirectory="$INSTALL_PATH\$version" description="esupsgclient zebra"
 		iconFile="$INSTALL_PATH\icon\esupsgcclient.ico" iconIndex="0"
 		initialState="maximized" desktop="yes"
@@ -25,7 +25,7 @@
         <createForPack name="esup-sgc-client-zebra"/>
     </shortcut>        
 	<shortcut name="esupSgcClientEvolisSdk"
-		target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="-Dcom.sun.webkit.useHTTP2Loader=false -jar esup-sgc-client-evolis-sdk.jar"
+		target="$INSTALL_PATH\java\bin\javaw.exe" commandLine="-Dcom.sun.webkit.useHTTP2Loader=false -DLOG_PATH=$LOG_PATH -jar esup-sgc-client-evolis-sdk.jar"
 		workingDirectory="$INSTALL_PATH\$version" description="esupsgclient evolis sdk"
 		iconFile="$INSTALL_PATH\icon\esupsgcclient.ico" iconIndex="0"
 		initialState="maximized" desktop="yes"
