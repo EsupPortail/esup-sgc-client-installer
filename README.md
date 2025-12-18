@@ -22,7 +22,7 @@ export JAVA_HOME=/usr/lib/jvm/java-23-openjdk-amd64
 
 ### Build :
 ```
-./build.sh https://esup-sgc.univ-ville.fr https://esup-nfc-tag.univ-ville.fr
+./build.sh https://esup-sgc.example.org https://esup-nfc-tag.example.org
 ```
 
 ### Prérequis :
