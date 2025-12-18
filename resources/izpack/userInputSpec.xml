@@ -16,12 +16,6 @@
         <field type="staticText" align="left" txt="(Utilisez %USERPROFILE% pour le dossier utilisateur)" />
         <field type="space"/>
 
-        <field type="space"/>
-        <field type="staticText" align="left" txt="Nom du fichier de logs :"/>
-        <field type="text" variable="LOG_FILENAME">
-            <spec txt="esupsgcclient.log" size="30" set="esupsgcclient.log"/>
-        </field>
-
     </panel>
 
 </izpack:userinput>

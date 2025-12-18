@@ -17,11 +17,10 @@
 	<variables>
 		<variable name="DesktopShortcutCheckboxEnabled" value="true" />
 		<variable name="LOG_DIR" value="%USERPROFILE%\Desktop" />
-		<variable name="LOG_FILENAME" value="esupsgcclient.log" />
 	</variables>
 	
 	<dynamicvariables>
-		<variable name="LOG_PATH" value="$LOG_DIR\$LOG_FILENAME"/>
+		<variable name="LOG_PATH" value="$LOG_DIR"/>
 	</dynamicvariables>
 
 	<natives>
